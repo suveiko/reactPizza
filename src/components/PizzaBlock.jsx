@@ -1,27 +1,44 @@
 import {useState} from "react";
 
-export const PizzaBlock = ({price, title}) => {
+export const PizzaBlock = ({price, title, imageUrl, sizes, types, id}) => {
 
     const [count, setCount] = useState(0)
+    const [sizesType, setSizesType] = useState(sizes[0] === 1 ? 1 : 0)
+    const [typesType, setTypesType] = useState(types[0] === 1 ? 1 : 0)
+
+    const typeName = ['тонкое', 'традиционное']
 
     return (
         <div>
             <div className="pizza-block">
                 <img
                     className="pizza-block__image"
-                    src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+                    src={imageUrl}
                     alt="Pizza"
                 />
                 <h4 className="pizza-block__title">{title}</h4>
                 <div className="pizza-block__selector">
                     <ul>
-                        <li className="active">тонкое</li>
-                        <li>традиционное</li>
+                        {types.map(t => (
+                            <li
+                                key={id}
+                                className={typesType === t ? 'active' : ''}
+                                onClick={() => setTypesType(t)}
+                            >
+                                {typeName[t]}
+                            </li>
+                        ))}
                     </ul>
                     <ul>
-                        <li className="active">26 см.</li>
-                        <li>30 см.</li>
-                        <li>40 см.</li>
+                        {sizes.map((s, index) => (
+                            <li
+                                key={index}
+                                className={sizesType === index ? 'active' : ''}
+                                onClick={() => setSizesType(index)}
+                            >
+                                {s} см.
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 <div onClick={() => setCount(count + 1)} className="pizza-block__bottom">
