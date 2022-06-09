@@ -8,11 +8,11 @@ export const Categories = () => {
     return (
         <div className="categories">
             <ul>
-                {categories.map((pzz, index) => (
+                {categories.map((pzz, i) => (
                         <li
-                            key={index}
-                            onClick={() => setActiveIndex(index)}
-                            className={activeIndex === index ? 'active' : ''}
+                            key={i}
+                            onClick={() => setActiveIndex(i)}
+                            className={activeIndex === i ? 'active' : ''}
                         >
                             {pzz}
                         </li>

@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-export const PizzaBlock = ({price, title, imageUrl, sizes, types, id}) => {
+export const PizzaBlock = ({price, title, imageUrl, sizes, types}) => {
 
     const [count, setCount] = useState(0)
     const [sizesType, setSizesType] = useState(sizes[0] === 1 ? 1 : 0)
@@ -21,7 +21,7 @@ export const PizzaBlock = ({price, title, imageUrl, sizes, types, id}) => {
                     <ul>
                         {types.map(t => (
                             <li
-                                key={id}
+                                key={t}
                                 className={typesType === t ? 'active' : ''}
                                 onClick={() => setTypesType(t)}
                             >
@@ -30,11 +30,11 @@ export const PizzaBlock = ({price, title, imageUrl, sizes, types, id}) => {
                         ))}
                     </ul>
                     <ul>
-                        {sizes.map((s, index) => (
+                        {sizes.map((s, i) => (
                             <li
-                                key={index}
-                                className={sizesType === index ? 'active' : ''}
-                                onClick={() => setSizesType(index)}
+                                key={s}
+                                className={sizesType === i ? 'active' : ''}
+                                onClick={() => setSizesType(i)}
                             >
                                 {s} см.
                             </li>

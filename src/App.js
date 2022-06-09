@@ -24,12 +24,7 @@ function App() {
                                 pizzas.map(t => (
                                     <PizzaBlock
                                         key={t.id}
-                                        title={t.title}
-                                        price={t.price}
-                                        id={t.id}
-                                        imageUrl={t.imageUrl}
-                                        sizes={t.sizes}
-                                        types={t.types}
+                                        {...t}
                                     />
                                 ))}
                         </div>
