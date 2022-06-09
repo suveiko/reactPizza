@@ -1,4 +1,9 @@
+import {useState} from "react";
+
 export const PizzaBlock = ({price, title}) => {
+
+    const [count, setCount] = useState(0)
+
     return (
         <div>
             <div className="pizza-block">
@@ -19,8 +24,8 @@ export const PizzaBlock = ({price, title}) => {
                         <li>40 см.</li>
                     </ul>
                 </div>
-                <div className="pizza-block__bottom">
-                    <div className="pizza-block__price">{price}</div>
+                <div onClick={() => setCount(count + 1)} className="pizza-block__bottom">
+                    <div className="pizza-block__price">от {price} ₽</div>
                     <div className="button button--outline button--add">
                         <svg
                             width="12"
@@ -35,7 +40,7 @@ export const PizzaBlock = ({price, title}) => {
                             />
                         </svg>
                         <span>Добавить</span>
-                        <i>2</i>
+                        <i>{count}</i>
                     </div>
                 </div>
             </div>
