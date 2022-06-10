@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 import {Header} from "./components/Header";
 import {Categories} from "./components/Categories";
@@ -11,11 +11,11 @@ function App() {
 
     const [pizzas, setPizzas] = useState([])
 
-    fetch('https://62a304695bd3609cee6048e1.mockapi.io/pizzas').then(res => {
-        return res.json()
-    }).then(json => {
-        setPizzas(json)
-    })
+    useEffect(() => {
+        fetch('https://62a304695bd3609cee6048e1.mockapi.io/pizzas')
+            .then(res => res.json())
+            .then(arr => setPizzas(arr))
+    }, [])
 
     return (
         <div className="App">
