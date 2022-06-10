@@ -1,6 +1,7 @@
 import {useState} from "react";
 
 export const Sort = () => {
+
     const popupList = ['популярности', 'цене', 'алфавиту']
 
     const [isVisible, setIsVisible] = useState(false)
