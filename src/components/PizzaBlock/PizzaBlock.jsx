@@ -9,7 +9,7 @@ export const PizzaBlock = ({price, title, imageUrl, sizes, types}) => {
     const typeName = ['тонкое', 'традиционное']
 
     return (
-        <div>
+        <div className='pizza-block-wrapper'>
             <div className="pizza-block">
                 <img
                     className="pizza-block__image"
