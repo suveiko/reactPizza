@@ -1,5 +1,6 @@
-import PizzaLogo from '../assets/img/pizza-logo.svg'
 import {Link} from "react-router-dom";
+
+import PizzaLogo from '../assets/img/pizza-logo.svg'
 
 export const Header = () => {
     return (
