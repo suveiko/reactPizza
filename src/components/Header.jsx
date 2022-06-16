@@ -1,7 +1,8 @@
 import {Link} from "react-router-dom";
 
-import PizzaLogo from '../assets/img/pizza-logo.svg'
 import {Search} from "./Search/Search";
+
+import PizzaLogo from '../assets/img/pizza-logo.svg'
 
 export const Header = ({searchValue, setSearchValue}) => {
     return (

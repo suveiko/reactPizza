@@ -18,9 +18,18 @@ function App() {
                 <Header searchValue={searchValue} setSearchValue={setSearchValue}/>
                 <div className="content">
                     <Routes>
-                        <Route path={'/reactPizza/'} element={<Home/>}/>
-                        <Route path={'/reactPizza/cart'} element={<Cart/>}/>
-                        <Route path={'/reactPizza/*'} element={<NotFound/>}/>
+                        <Route
+                            path={'/reactPizza/'}
+                            element={<Home searchValue={searchValue} setSearchValue={setSearchValue}/>}
+                        />
+                        <Route
+                            path={'/reactPizza/cart'}
+                            element={<Cart/>}
+                        />
+                        <Route
+                            path={'/reactPizza/*'}
+                            element={<NotFound/>}
+                        />
                     </Routes>
                 </div>
             </div>

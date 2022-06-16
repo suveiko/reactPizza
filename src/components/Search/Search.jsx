@@ -4,7 +4,6 @@ export const Search = ({searchValue, setSearchValue}) => {
     return (
         <div className={s.root}>
             <svg
-                onClick={() => alert('hi')}
                 className={s.icon}
                 enableBackground="new 0 0 32 32"
                 height="32px"
@@ -24,7 +23,7 @@ export const Search = ({searchValue, setSearchValue}) => {
             <input
                 value={searchValue}
                 className={s.input}
-                placeholder='Поиск пиццы ...'
+                placeholder='Поиск пиццы...'
                 onChange={(e) => setSearchValue(e.currentTarget.value)}
             />
             {
