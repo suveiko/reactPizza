@@ -10,11 +10,19 @@ export const Home = () => {
     const [isLoading, setIsLoading] = useState(true)
 
     const [categoryId, setCategoryId] = useState(0)
-    const [sortType, setSortType] = useState(0)
+    const [sortType, setSortType] = useState(
+        {name: 'популярности', sort: 'rating'}
+    )
 
     useEffect(() => {
         setIsLoading(true)
-        fetch('https://62a304695bd3609cee6048e1.mockapi.io/pizzas?category=' + categoryId)
+
+        const sortBy = sortType.sort.replace('-', '')
+        const order = sortType.sort.includes('-') ? 'asc' : 'desc'
+        const category = categoryId > 0 ? `category=${categoryId}` : ''
+
+        fetch(
+            `https://62a304695bd3609cee6048e1.mockapi.io/pizzas?${category}&sortBy=${sortBy}&order=${order}`,)
             .then(res => res.json())
             .then(arr => {
                     setPizzas(arr)
@@ -22,13 +30,13 @@ export const Home = () => {
                 }
             )
         window.scrollTo(0, 0)
-    }, [categoryId])
+    }, [categoryId, sortType])
 
     return (
         <div className="container">
             <div className="content__top">
                 <Categories value={categoryId} onClickCategory={(i) => setCategoryId(i)}/>
-                <Sort popupType={sortType} setPopupType={setSortType}/>
+                <Sort sortValue={sortType} onClickSort={(i) => setSortType(i)}/>
             </div>
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
