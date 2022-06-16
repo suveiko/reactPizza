@@ -1,11 +1,10 @@
 import {useState} from "react";
 
-export const Sort = () => {
+export const Sort = ({setPopupType, popupType}) => {
 
     const popupList = ['популярности', 'цене', 'алфавиту']
 
     const [isVisible, setIsVisible] = useState(false)
-    const [popupType, setPopupType] = useState(0)
     const onClickSelect = (i) => {
         setPopupType(i)
         setIsVisible(false)

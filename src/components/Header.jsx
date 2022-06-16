@@ -7,10 +7,10 @@ export const Header = () => {
         <div className="header">
             <div className="container">
                 <div className="header__logo">
-                    <Link to={'/'}>
+                    <Link to={'/reactPizza'}>
                         <img width="38" src={PizzaLogo} alt="Pizza logo"/>
                         <div>
-                            <h1>React Pizza</h1>
+                            <h1>Pizza</h1>
                             <p>самая вкусная пицца во вселенной</p>
                         </div>
                     </Link>
