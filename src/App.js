@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {createContext, useState} from "react"
 import {Route, Routes} from "react-router-dom";
 
 import {Header} from "./components/Header";
@@ -9,18 +9,20 @@ import {Cart} from "./pages/Cart";
 import './scss/app.scss'
 
 
+export const AppContext = createContext()
+
 function App() {
     const [searchValue, setSearchValue] = useState('')
 
     return (
-        <div className="App">
-            <div className="wrapper">
-                <Header searchValue={searchValue} setSearchValue={setSearchValue}/>
+        <div className="wrapper">
+            <AppContext.Provider value={{searchValue, setSearchValue}}>
+                <Header/>
                 <div className="content">
                     <Routes>
                         <Route
                             path={'/reactPizza/'}
-                            element={<Home searchValue={searchValue} setSearchValue={setSearchValue}/>}
+                            element={<Home/>}
                         />
                         <Route
                             path={'/reactPizza/cart'}
@@ -32,7 +34,7 @@ function App() {
                         />
                     </Routes>
                 </div>
-            </div>
+            </AppContext.Provider>
         </div>
     );
 }

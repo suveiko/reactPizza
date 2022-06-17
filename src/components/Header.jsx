@@ -4,7 +4,7 @@ import {Search} from "./Search/Search";
 
 import PizzaLogo from '../assets/img/pizza-logo.svg'
 
-export const Header = ({searchValue, setSearchValue}) => {
+export const Header = () => {
     return (
         <div className="header">
             <div className="container">
@@ -16,7 +16,7 @@ export const Header = ({searchValue, setSearchValue}) => {
                         <h1>Pizza</h1>
                         <p>самая вкусная пицца во вселенной</p>
                     </Link>
-                    <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
+                    <Search />
                 </div>
                 <div className="header__cart">
                     <Link to="/reactPizza/cart" className="button button--cart">

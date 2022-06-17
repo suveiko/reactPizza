@@ -1,6 +1,11 @@
 import s from './Search.module.scss'
+import {useContext} from "react";
 
-export const Search = ({searchValue, setSearchValue}) => {
+import {AppContext} from "../../App";
+
+export const Search = () => {
+    const {searchValue, setSearchValue} = useContext(AppContext)
+
     return (
         <div className={s.root}>
             <svg
