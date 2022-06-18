@@ -18,3 +18,5 @@ const filterSlice = createSlice({
         }
     }
 })
+
+export default filterSlice
