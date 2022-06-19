@@ -1,10 +1,18 @@
-import s from './Search.module.scss'
-import {useContext} from "react";
+import {useContext, useRef} from "react";
 
 import {AppContext} from "../../App";
 
+import s from './Search.module.scss'
+
+
 export const Search = () => {
     const {searchValue, setSearchValue} = useContext(AppContext)
+    const inputRef = useRef()
+
+    const onClickClear = () => {
+        setSearchValue('')
+        inputRef.current.focus()
+    }
 
     return (
         <div className={s.root}>
@@ -26,6 +34,7 @@ export const Search = () => {
                 </g>
             </svg>
             <input
+                ref={inputRef}
                 value={searchValue}
                 className={s.input}
                 placeholder='Поиск пиццы...'
@@ -34,7 +43,7 @@ export const Search = () => {
             {
                 searchValue &&
                 <svg
-                    onClick={() => setSearchValue('')}
+                    onClick={onClickClear}
                     className={s.clearIcon}
                     data-name="Capa 1"
                     id="Capa_1"
