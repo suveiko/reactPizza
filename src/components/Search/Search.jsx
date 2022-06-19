@@ -1,8 +1,14 @@
 import {useContext, useRef} from "react";
+import debounce from 'lodash.debounce'
 
 import {AppContext} from "../../App";
 
 import s from './Search.module.scss'
+
+const hey = debounce(() => {
+    console.log('hi')
+}, 1000)
+hey()
 
 
 export const Search = () => {
@@ -13,6 +19,7 @@ export const Search = () => {
         setSearchValue('')
         inputRef.current.focus()
     }
+    const onChangeInputHandler = (e) => setSearchValue(e.currentTarget.value)
 
     return (
         <div className={s.root}>
@@ -38,7 +45,7 @@ export const Search = () => {
                 value={searchValue}
                 className={s.input}
                 placeholder='Поиск пиццы...'
-                onChange={(e) => setSearchValue(e.currentTarget.value)}
+                onChange={onChangeInputHandler}
             />
             {
                 searchValue &&
