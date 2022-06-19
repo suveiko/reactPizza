@@ -15,21 +15,19 @@ export const Home = () => {
     const {searchValue} = useContext(AppContext)
 
     const categoryId = useSelector(state => state.filter.categoryId)
+    const sortType = useSelector(state => state.filter.sortType.sort)
     const onClickCategory = (id) => dispatch(setCategoryId(id))
 
     const [pizzas, setPizzas] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [currentPage, setCurrentPage] = useState(1)
 
-    const [sortType, setSortType] = useState(
-        {name: 'популярности', sort: 'rating'}
-    )
 
     useEffect(() => {
         setIsLoading(true)
 
-        const sortBy = sortType.sort.replace('-', '')
-        const order = sortType.sort.includes('-') ? 'asc' : 'desc'
+        const sortBy = sortType.replace('-', '')
+        const order = sortType.includes('-') ? 'asc' : 'desc'
         const category = categoryId > 0 ? `category=${categoryId}` : ''
         const search = searchValue ? `&search=${searchValue}` : ''
 
@@ -51,7 +49,7 @@ export const Home = () => {
         <div className="container">
             <div className="content__top">
                 <Categories value={categoryId} onClickCategory={onClickCategory}/>
-                <Sort sortValue={sortType} onClickSort={(i) => setSortType(i)}/>
+                <Sort/>
             </div>
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
