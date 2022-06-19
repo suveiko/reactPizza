@@ -1,5 +1,6 @@
 import {useContext, useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import axios from "axios";
 
 import {AppContext} from "../App";
 import {Categories} from "../components/Categories";
@@ -11,6 +12,7 @@ import {setCategoryId} from "../redux/slices/filterSlice";
 
 
 export const Home = () => {
+
     const dispatch = useDispatch()
     const {searchValue} = useContext(AppContext)
 
@@ -31,14 +33,11 @@ export const Home = () => {
         const category = categoryId > 0 ? `category=${categoryId}` : ''
         const search = searchValue ? `&search=${searchValue}` : ''
 
-        fetch(
-            `https://62a304695bd3609cee6048e1.mockapi.io/pizzas?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,)
-            .then(res => res.json())
-            .then(arr => {
-                    setPizzas(arr)
-                    setIsLoading(false)
-                }
-            )
+        axios.get(`https://62a304695bd3609cee6048e1.mockapi.io/pizzas?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`)
+            .then(res => {
+                setPizzas(res.data)
+                setIsLoading(false)
+            })
         window.scrollTo(0, 0)
     }, [categoryId, sortType, searchValue, currentPage])
 

@@ -3,18 +3,20 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {setSort} from '../redux/slices/filterSlice'
 
+
+const popupList = [
+    {name: 'популярности (DESC)', sort: 'rating'},
+    {name: 'популярности (ASC)', sort: '-rating'},
+    {name: 'цене (DESC)', sort: 'price'},
+    {name: 'цене (ASC)', sort: '-price'},
+    {name: 'алфавиту (DESC)', sort: 'title'},
+    {name: 'алфавиту (ASC)', sort: '-title'}
+]
+
 export const Sort = () => {
+
     const dispatch = useDispatch()
     const sortValue = useSelector(state => state.filter.sortType)
-
-    const popupList = [
-        {name: 'популярности (DESC)', sort: 'rating'},
-        {name: 'популярности (ASC)', sort: '-rating'},
-        {name: 'цене (DESC)', sort: 'price'},
-        {name: 'цене (ASC)', sort: '-price'},
-        {name: 'алфавиту (DESC)', sort: 'title'},
-        {name: 'алфавиту (ASC)', sort: '-title'}
-    ]
 
     const [isVisible, setIsVisible] = useState(false)
     const onClickSelect = (obj) => {
