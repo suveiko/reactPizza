@@ -56,5 +56,5 @@ export const Home = () => {
             </div>
             <Pagination onChangePage={(number) => setCurrentPage(number)}/>
         </div>
-    );
-};
+    )
+}

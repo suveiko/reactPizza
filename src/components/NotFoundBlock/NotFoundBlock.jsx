@@ -7,5 +7,5 @@ export const NotFoundBlock = () => {
             <div>Ничего не найдено!</div>
             <span>—ฅ/ᐠ.̫ .ᐟ\ฅ—</span>
         </div>
-    );
-};
+    )
+}

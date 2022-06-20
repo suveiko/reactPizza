@@ -14,5 +14,5 @@ export const Pagination = ({onChangePage}) => {
             previousLabel="<"
             renderOnZeroPageCount={null}
         />
-    );
-};
+    )
+}

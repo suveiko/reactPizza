@@ -7,8 +7,6 @@ const initialState = {
         sort: 'rating'
     }
 }
-
-
 const filterSlice = createSlice({
     name: 'filter',
     initialState,

@@ -62,5 +62,5 @@ export const PizzaBlock = ({price, title, imageUrl, sizes, types}) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}

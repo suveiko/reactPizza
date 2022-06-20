@@ -5,11 +5,11 @@ import {AppContext} from "../../App";
 
 import s from './Search.module.scss'
 
+
 const hey = debounce(() => {
     console.log('hi')
 }, 1000)
 hey()
-
 
 export const Search = () => {
     const {searchValue, setSearchValue} = useContext(AppContext)
@@ -62,5 +62,5 @@ export const Search = () => {
                 </svg>
             }
         </div>
-    );
-};
+    )
+}
